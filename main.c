@@ -32,21 +32,21 @@ void		testers1(void)
 	printf("input: \"\"\n");
 	printf("STRLEN    Retorno: %zu\n", strlen(""));
 	printf("FT_STRLEN Retorno: %zu\n\n", ft_strlen(""));
-	printf("input: \"a very very very very very very");
-	printf("very very very very long string\"\n");
-	printf("STRLEN    Retorno %zu\n",
-	strlen("a very very very very very very very very very very long string"));
-	printf("FT_STRLEN Retorno %zu\n",
-	ft_strlen("a very very very very very very very very very very long string"));
+	printf("input: \"a very very very very very very ");
+	printf("very very very long string\"\n");
+	printf("STRLEN    Retorno: %zu\n",
+	strlen("a very very very very very very very very very long string"));
+	printf("FT_STRLEN Retorno: %zu\n",
+	ft_strlen("a very very very very very very very very very long string"));
 	printf("_____________________TESTE FT_STRCPY__________________\n\n");
 	printf("input: \"\"\n");
 	printf("STRCPY    Retorno: %s\n", strcpy(frase1, ""));
 	printf("FT_STRCPY Retorno: %s\n\n", ft_strcpy(frase2, ""));
-	printf("input: \"a very very very very very very very very very very long string\"\n");
-	printf("STRCPY    Retorno %s\n",
-	strcpy(frase1, "a very very very very very very very very very very long string"));
-	printf("FT_STRCPY Retorno %s\n",
-	ft_strcpy(frase2, "a very very very very very very very very very very long string"));
+	printf("input: \"a very very very very very very very long string\"\n");
+	printf("STRCPY    Retorno: %s\n",
+	strcpy(frase1, "a very very very very very very very long string"));
+	printf("FT_STRCPY Retorno: %s\n",
+	ft_strcpy(frase2, "a very very very very very very very long string"));
 }
 
 void		testers2(void)
@@ -55,10 +55,12 @@ void		testers2(void)
 	printf("STRCMP       str1: \"\"  str2: \"\" Retorno: %d\n", strcmp("", ""));
 	printf("FT_STRCMP    str1: \"\"  str2: \"\" Retorno: %d\n\n",
 			ft_strcmp("", ""));
-	printf("STRCMP       str1: \"a\"  str2: \"\" Retorno: %d\n", strcmp("a", ""));
+	printf("STRCMP       str1: \"a\"  str2: \"\" Retorno: %d\n",
+	strcmp("a", ""));
 	printf("FT_STRCMP    str1: \"a\"  str2: \"\" Retorno: %d\n\n",
 			ft_strcmp("a", ""));
-	printf("STRCMP       str1: \"\"  str2: \"a\" Retorno: %d\n", strcmp("", "a"));
+	printf("STRCMP       str1: \"\"  str2: \"a\" Retorno: %d\n",
+	strcmp("", "a"));
 	printf("FT_STRCMP    str1: \"\"  str2: \"a\" Retorno: %d\n\n",
 			ft_strcmp("", "a"));
 	printf("STRCMP       str1: \"abc\"  str2: \"abc\" Retorno: %d\n",
@@ -82,13 +84,16 @@ void		testers3(void)
 	printf("_____________________TESTE FT_STRDUP_____________________\n\n");
 	ret = ft_strdup("");
 	printf("input: \"\"\n");
-	printf("FT_STRDUP Retorno: %s\n\n", ret);
+	printf("Retorno: %s\n\n", ret);
+	free(ret);
 	ret = ft_strdup("São Paulo");
 	printf("input: \"São Paulo\"\n");
-	printf("FT_STRDUP Retorno: %s\n", ret);
-	ret = ft_strdup("input: \"a very very very very very very very very very very long string\"\n");
-	printf("input: \"a very very very very very very very very very very long string\"\n");
-	printf("FT_STRDUP Retorno: %s\n", ret);
+	printf("Retorno: %s\n\n", ret);
+	free(ret);
+	printf("input: \"a very very very very very very very long string\"\n");
+	ret = ft_strdup("a very very very very very very very long string\n");
+	printf("Retorno: %s\n\n", ret);
+	free(ret);
 }
 
 void		testers4(void)
@@ -100,15 +105,15 @@ void		testers4(void)
 	printf("_____________________TESTE FT_WRITE_____________________\n\n");
 	(num = (ft_write(1, "Manaus\n", 7)));
 	printf("input: \"Manaus\"\n");
-	printf("FT_WRITE Retorno: %d\n", num);
+	printf("Retorno: %d\n", num);
 	printf("errno: %d\n\n", errno);
 	(num = (ft_write(fds, "Brasilia\n", 9)));
 	printf("input: \"Brasilia\"\n");
-	printf("FT_WRITE Retorno: %d\n", num);
+	printf("Retorno: %d\n", num);
 	printf("errno: %d\n\n", errno);
 	(num = (ft_write(50, "Maranhão\n", 9)));
 	printf("input: \"Maranhão\"\n");
-	printf("FT_WRITE Retorno: %d\n", num);
+	printf("Retorno: %d\n", num);
 	printf("errno: %d\n\n", errno);
 	errno = 0;
 }
