@@ -15,6 +15,7 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <errno.h>
+#include <stdlib.h>
 
 size_t		ft_strlen(const	char *str);
 char		*ft_strcpy(char *dest, char *src);
@@ -107,10 +108,12 @@ void		testers4(void)
 	printf("input: \"Manaus\"\n");
 	printf("Retorno: %d\n", num);
 	printf("errno: %d\n\n", errno);
+	printf("teste open file: write.txt\n");
 	(num = (ft_write(fds, "Brasilia\n", 9)));
 	printf("input: \"Brasilia\"\n");
 	printf("Retorno: %d\n", num);
 	printf("errno: %d\n\n", errno);
+	printf("teste errno: fd=50\n");
 	(num = (ft_write(50, "Maranhão\n", 9)));
 	printf("input: \"Maranhão\"\n");
 	printf("Retorno: %d\n", num);
@@ -122,23 +125,25 @@ int			main(void)
 {
 	int		fd;
 	char	ptr[100];
+	char	ptr2[100];
+	char	ptr3[100];
 	int		num;
 
 	testers1();
 	testers2();
 	testers3();
 	testers4();
-	fd = open("read.txt", O_RDONLY);
 	printf("_____________________TESTE FT_READ_____________________\n\n");
-	(num = (ft_read(fd, ptr, 100)));
-	printf("input: \"42SãoPaulo\"\n");
-	printf("Retorno String: %sRetorno Num: %d\n", ptr, num);
-	printf("errno: %d\n\n", errno);
 	(num = (ft_read(0, ptr, 100)));
 	printf("Retorno Num: %d\n", num);
 	printf("errno: %d\n\n", errno);
-	(num = (ft_read(-1, ptr, 100)));
-	printf("input: \"\"\n");
+	fd = open("read.txt", O_RDONLY);
+	(num = (ft_read(fd, ptr2, 100)));
+	printf("open file: read.txt\n");
+	printf("Retorno String: %sRetorno Num: %d\n", ptr2, num);
+	printf("errno: %d\n\n", errno);
+	(num = (ft_read(-1, ptr3, 100)));
+	printf("teste erro: fd=-1\n");
 	printf("Retorno Num: %d\n", num);
 	printf("errno: %d\n\n", errno);
 	return (0);
